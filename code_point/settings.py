@@ -58,15 +58,24 @@ ROOT_URLCONF = 'code_point.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],  # or specify other directories
+        'DIRS': [BASE_DIR / 'templates'],  # Specify your templates directory here
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
-                # include other necessary context processors
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.csrf',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.i18n',
+                # Removed 'django.template.context_processors.security' as it is not defined
             ],
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'code_point.wsgi.application'
 
